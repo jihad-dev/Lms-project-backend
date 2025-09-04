@@ -10,32 +10,32 @@ const router = express.Router();
 router.post(
   '/',
   validateRequest(enrollmentValidation.createEnrollmentRequest),
-  auth(['student', 'admin']),
+  auth(['student']),
   EnrollmentControllers.createEnrollmentRequest
 );
 
 router.get(
   '/my-requests',
   validateRequest(enrollmentValidation.getEnrollmentRequests),
-  auth(['student', 'admin']),
+  auth(['student']),
   EnrollmentControllers.getEnrollmentRequestsByUser
 );
 
 router.get(
   '/status/:courseId',
-  auth(['student', 'admin']),
+  auth(['student']),
   EnrollmentControllers.checkUserEnrollmentStatus
 );
 
 router.get(
   '/:id',
-  auth(['student', 'admin']),
+  auth(['student']),
   EnrollmentControllers.getEnrollmentRequestById
 );
 
 router.delete(
   '/:id',
-  auth(['student', 'admin']),
+  auth(['student','admin']),
   EnrollmentControllers.deleteEnrollmentRequest
 );
 
