@@ -28,7 +28,7 @@ const createCourse = z.object({
     category: z.string().optional(),
 
     // Coerce "true"/"false" strings from FormData
-    isPublished: z.coerce.boolean().optional(),
+    published: z.coerce.boolean().optional(),
   }),
 });
 
@@ -51,7 +51,7 @@ const updateCourse = z.object({
     
     category: z.string().optional(),
     
-    isPublished: z.coerce.boolean().optional(),
+    published: z.coerce.boolean().optional(),
   }),
 });
 

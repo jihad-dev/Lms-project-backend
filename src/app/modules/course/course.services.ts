@@ -62,7 +62,7 @@ const deleteCourse = async (id: string) => {
 };
 
 const getPublishedCourses = async (filters: ICourseFilters) => {
-  const publishedFilters = { ...filters, isPublished: true };
+  const publishedFilters = { ...filters, published: true };
   const courseQuery = new QueryBuilder(Course.find(), publishedFilters as Record<string, unknown>)
     .search(['title', 'description'])
     .filter()

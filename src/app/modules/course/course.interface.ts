@@ -7,7 +7,7 @@ export interface ICourse {
   duration?: number;
   level?: 'beginner' | 'intermediate' | 'advanced';
   category?: string;
-  isPublished?: boolean;
+  published?: boolean;
   createdAt?: Date;
   updatedAt?: Date;
 }
