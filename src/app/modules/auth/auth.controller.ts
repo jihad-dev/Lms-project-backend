@@ -71,6 +71,15 @@ const loginUser = async (req: Request, res: Response) => {
   }
 };
 
+const logoutUser = catchAsync(async (req: Request, res: Response) => {
+  res.clearCookie("refreshToken");
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Logged out successfully!",
+    data: null,
+  });
+});
 const refreshToken = catchAsync(async (req: Request, res: Response) => {
   const { refreshToken } = req.cookies;
   if (!refreshToken) {
@@ -82,7 +91,7 @@ const refreshToken = catchAsync(async (req: Request, res: Response) => {
     success: true,
     message: "New access token generated successfully",
     data: {
-      accessToken:result.accessToken
+      accessToken: result.accessToken,
     },
   });
 });
@@ -91,4 +100,9 @@ export const AuthController = {
   registerUser,
   loginUser,
   refreshToken,
+  logoutUser
+};
+
+function cookies() {
+  throw new Error("Function not implemented.");
 }

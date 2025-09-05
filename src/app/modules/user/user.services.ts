@@ -71,6 +71,14 @@ const changeUserStatus = async (id: string, status: string): Promise<IUser | nul
   const result = await User.findByIdAndUpdate(id, { status }, { new: true });
   return result;
 }
+// ✅ update user info (name, email, etc.)
+const updateUser = async (
+  id: string,
+  payload: Partial<IUser>
+): Promise<IUser | null> => {
+  const result = await User.findByIdAndUpdate(id, payload, { new: true });
+  return result;
+};
 export const UserServices = {
   createUser,
   getAllUser,
@@ -81,6 +89,7 @@ export const UserServices = {
   deleteAdmin,
   changeUserRole,
   changeUserStatus,
+  updateUser
   
  
 }

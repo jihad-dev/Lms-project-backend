@@ -68,6 +68,7 @@ import { User } from "../user/user.model";
   };
 };
 
+
 const refreshToken = async (refreshToken: string) => {
   const decoded = jwt.verify(refreshToken, config.jwt_refresh_secret as string) as JwtPayload;
   if (typeof decoded === 'string' || !decoded) {

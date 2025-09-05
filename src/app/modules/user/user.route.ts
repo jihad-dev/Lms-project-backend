@@ -39,7 +39,7 @@ router.patch('/status/:id',
     auth(['admin']),
     UserController.changeUserStatus
 )
-
+router.patch("/update-user/:id", UserController.updateUser);
 router.delete(
     '/:id',
     auth(['admin']),
