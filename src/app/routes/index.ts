@@ -6,7 +6,6 @@ import { BlogRoutes } from "../modules/Blog/blog.routes";
 import { CourseRoutes } from "../modules/course/course.route";
 import { ModuleRoutes } from "../modules/module/module.route";
 import { LectureRoutes } from "../modules/lecture/lecture.route";
-import { ProgressRoutes } from "../modules/progress/progress.route";
 import { EnrollmentRoutes } from "../modules/enrollment/enrollment.route";
 
 const router = Router();
@@ -40,10 +39,7 @@ const moduleRoutes = [
         path: "/enrollment",
         route: EnrollmentRoutes,
     },
-    {
-        path: "/progress",
-        route: ProgressRoutes,
-    }
+  
 ];
 
 moduleRoutes.forEach((route) => router.use(route?.path, route?.route));
